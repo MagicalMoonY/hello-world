@@ -14,8 +14,8 @@ private:
 };
 
 int main() {
-  Date today(2018,3,20);
-  Date day(2018,3,20);
+  Date today(2012,12,20);
+  Date day(2012,12,20);
   day.show();
   for(int i=0;i<30;i++)
     day.nextDay();
