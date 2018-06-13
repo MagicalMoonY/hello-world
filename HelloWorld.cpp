@@ -1,7 +1,8 @@
 #include "HelloWorld.h"
-#include <iostream>
 using namespace std;
-void HelloWorld::hello() {
-  cout << "Hello World!" << endl;
-}
 
+int main() {
+  HelloWorld hw;
+  hw.print();
+  return 0;
+}
