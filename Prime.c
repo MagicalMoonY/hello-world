@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
-
- 
+#include<iostream>
+using namespace std;
 int sum_bit(int num) {
 	int sum1=0;
 	while(num!=0){
@@ -9,11 +9,7 @@ int sum_bit(int num) {
 		num/=10;
 	}
   return sum1;
-
 }
-
-
-
 int multi_bit(int num) {
 	int mul=1;
 	while(num!=0){
@@ -21,11 +17,7 @@ int multi_bit(int num) {
 		num/=10;
 	}
   return 0;
-
 }
-
-
-
 int square_sum_bit(int num) {
 	int sum2=0;
 	while(num!=0){
@@ -33,11 +25,7 @@ int square_sum_bit(int num) {
 		num/=10;
 	}
   return sum2;
-
 }
-
-
-
 bool isprime(int num) {
 	int x=0;
 	int i=0;
@@ -53,12 +41,7 @@ bool isprime(int num) {
 	else{
 		return true;
 	}
-
-
 }
-
-
-
 int main() {
 	int i=0,j=0;
 	int flag=0;
@@ -72,10 +55,6 @@ int main() {
 		allsum+=i;
 		maxin=i;
 	}
-	
 	}
-  
 	printf("%d %lld %d",sum,allsum,maxin);
-    //to do sth
-
 }
