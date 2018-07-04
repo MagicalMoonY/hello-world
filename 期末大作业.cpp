@@ -1,10 +1,10 @@
 #include<iostream> 
-#include<vector>//vectorÊÇÒ»ÖÖË³ĞòÈİÆ÷£¬ÊÂÊµÉÏºÍÊı×é²î²»¶à£¬µ«Ëü±ÈÊı×é¸üÓÅÔ½¡£
+#include<vector>//vectoræ˜¯ä¸€ç§é¡ºåºå®¹å™¨ï¼Œäº‹å®ä¸Šå’Œæ•°ç»„å·®ä¸å¤šï¼Œä½†å®ƒæ¯”æ•°ç»„æ›´ä¼˜è¶Šã€‚
 #include<stdlib.h>
 using namespace std;
 class Unit_ALL{
 	public:
-		virtual void trans(double) = 0;//¶¨Òå´¿Ğéº¯Êı 
+		virtual void trans(double) = 0;//å®šä¹‰çº¯è™šå‡½æ•° 
 		virtual bool find(string,string) = 0;
 };
 class Base:public  Unit_ALL {
@@ -16,16 +16,16 @@ class Base:public  Unit_ALL {
 		int mark;
 		int now;
 		int next;
-		vector<string> length_measurement;	//³¤¶È 
+		vector<string> length_measurement;	//é•¿åº¦ 
 		vector<double> length_number;
-		vector<string> time_measurement;//Ê±¼ä 
+		vector<string> time_measurement;//æ—¶é—´ 
 		vector<double> time_number;
-		vector<string> quality_measurement;//ÖÊÁ¿
+		vector<string> quality_measurement;//è´¨é‡
 		vector<double> quality_number;
-		vector<string> temperature_measurement;//ÎÂ¶È
+		vector<string> temperature_measurement;//æ¸©åº¦
 		vector<double> temperature_number;	
 };
-bool Show(){//ÊäÈëÌáÊ¾ÒÔ¼°Ñ¡Ôñµ¥Î»ÀàĞÍ
+bool Show(){//è¾“å…¥æç¤ºä»¥åŠé€‰æ‹©å•ä½ç±»å‹
 	int choice = 0;
 	printf("%-12s%-12s%-12s%-12s\n\n", "1.length","2.time","3.quality","4.temperature");
 	cout <<"Please enter the number of the unit that you want to convert:"<<endl;
@@ -43,7 +43,7 @@ bool Show(){//ÊäÈëÌáÊ¾ÒÔ¼°Ñ¡Ôñµ¥Î»ÀàĞÍ
 		return true;		
 	}
 	else if(choice == 4){
-		printf("%-12s%-12s%-12s%-12s\n%-12s\n", "¡æ","¨H","K","Re","R");
+		printf("%-12s%-12s%-12s%-12s\n%-12s\n", "â„ƒ","â„‰","K","Re","R");
 		return true;
 	}
 	else{
@@ -60,7 +60,7 @@ Base::Base(){
     time_number.push_back (1.0/60); time_number.push_back (1); time_number.push_back (60); time_number.push_back (3600);time_number.push_back (216000); 
 	quality_measurement.push_back ("mg");quality_measurement.push_back ("g"); quality_measurement.push_back ("kg");	quality_measurement.push_back ("t"); 
 	quality_number.push_back (1000);quality_number.push_back (1); quality_number.push_back (0.001);	quality_number.push_back (0.000001);  
-	temperature_measurement.push_back ("¡æ"); temperature_measurement.push_back ("¨H"); temperature_measurement.push_back ("K");temperature_measurement.push_back ("Re"); temperature_measurement.push_back ("R");
+	temperature_measurement.push_back ("â„ƒ"); temperature_measurement.push_back ("â„‰"); temperature_measurement.push_back ("K");temperature_measurement.push_back ("Re"); temperature_measurement.push_back ("R");
     temperature_number.push_back (1); temperature_number.push_back (33.8); temperature_number.push_back (274.15);temperature_number.push_back (0.8); temperature_number.push_back (493.47);	
 }
 void Base:: trans(double num){
@@ -72,29 +72,29 @@ void Base:: trans(double num){
 	if(mark == 1){
 		_iterator1 = now+length_number.begin();
 		_iterator2 = next+length_number.begin();
-		cout<<"Conversion result£º"<<num*(*_iterator1)/(*_iterator2)<<endl<<endl; 
+		cout<<"Conversion resultï¼š"<<num*(*_iterator1)/(*_iterator2)<<endl<<endl; 
 	}
 	else if(mark == 2){
 		_iterator1 = now + time_number.begin();
 		_iterator2 = next + time_number.begin();
-		cout<<"Conversion result£º"<<num*(*_iterator1)/(*_iterator2)<<endl<<endl; 				
+		cout<<"Conversion resultï¼š"<<num*(*_iterator1)/(*_iterator2)<<endl<<endl; 				
 	}
 	else if(mark == 3){
 		_iterator1 = now + quality_number.begin();
 		_iterator2 = next + quality_number.begin();
-		cout<<"Conversion result£º"<<num*(*_iterator1)/(*_iterator2)<<endl<<endl; 				
+		cout<<"Conversion resultï¼š"<<num*(*_iterator1)/(*_iterator2)<<endl<<endl; 				
 	}
 	else if(mark == 4){
 		_iterator1 = now + temperature_number.begin();
 		_iterator2 = next + temperature_number.begin();
-		cout<<"Conversion result£º"<<num*(*_iterator2)/(*_iterator1)<<endl<<endl; 				
+		cout<<"Conversion resultï¼š"<<num*(*_iterator2)/(*_iterator1)<<endl<<endl; 				
 	}
 	else{
 		cout<<"Error!"<<endl;
     }
 }
 bool Base :: find(string _string1,string _string2){
-	vector<string>::iterator _iterator1,_iterator2;//µü´úÆ÷(Iterator)Ä£Ê½
+	vector<string>::iterator _iterator1,_iterator2;//è¿­ä»£å™¨(Iterator)æ¨¡å¼
 	for(_iterator1 = length_measurement.begin();_iterator1 != length_measurement.end(); _iterator1++){
 		if(_string1 == *_iterator1){
 			for(_iterator2 = length_measurement.begin();_iterator2 != length_measurement.end();_iterator2++){
@@ -149,8 +149,8 @@ int main(){
 	cout << "the codes' purpose is to accomplish the function of Unit Convertor" << endl;
 	cout << "the author is yangmingyue"<<endl;
 	cout << "the teacher is Dashark"<<endl<<endl;
-	double num;//Ô­µ¥Î»µÄÊıÖµ 
-	string begin,end;//Ô­µ¥Î»ÓëÏë×ª»»µÄµ¥Î» 
+	double num;//åŸå•ä½çš„æ•°å€¼ 
+	string begin,end;//åŸå•ä½ä¸æƒ³è½¬æ¢çš„å•ä½ 
 	bool win,choose;//false = 0 ,true = 1;
 	int all_times;
 	cout<<"Please enter the number of times you want to convert"<<endl;
@@ -163,8 +163,8 @@ int main(){
 	    	choose=Show();
     	}
     	cout << "Please enter the normal range, the original unit and the unit you want to convert, separated by spaces. "
-    	"(please use the corresponding English in the hint to indicate the unit)."<<endl; 
-    	cout << "Examples (for example in length)£º" << endl;
+    	"(please use the corresponding English)."<<endl; 
+    	cout << "Examples (for example in length)ï¼š" << endl;
     	cout << "1 cm m" << endl; 
      	while(cin >> num >> begin >> end){
         	Base obj1;
